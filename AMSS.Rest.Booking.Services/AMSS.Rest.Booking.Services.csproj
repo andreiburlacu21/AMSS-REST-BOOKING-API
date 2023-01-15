@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Email\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.25.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AMSS.Rest.Booking.DataAccess\AMSS.Rest.Booking.DataAccess.csproj" />
+    <ProjectReference Include="..\AMSS.Rest.Booking.DTO\AMSS.Rest.Booking.DTO.csproj" />
+    <ProjectReference Include="..\AMSS.Rest.Booking.Validator\AMSS.Rest.Booking.Validator.csproj" />
+  </ItemGroup>
+
+</Project>
