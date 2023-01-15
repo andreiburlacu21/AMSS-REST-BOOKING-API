@@ -17,11 +17,11 @@ public sealed class AccountValidation : AbstractValidator<AccountDto>
             .Length(4, 25)
             .NotEmpty();
 
-        RuleFor(x => x.Password)
-           .Cascade(CascadeMode.Stop)
-           .NotEmpty()
-           .Length(4, 25)
-           .Must(MustBeAValidPassowrd).WithMessage("The selected password does not meet the requirements.");
+        //RuleFor(x => x.Password)
+        //   .Cascade(CascadeMode.Stop)
+        //   .NotEmpty()
+        //   .Length(4, 25)
+        //   .Must(MustBeAValidPassowrd).WithMessage("The selected password does not meet the requirements.");
 
         RuleFor(x => x.Email)
            .Cascade(CascadeMode.Stop)
