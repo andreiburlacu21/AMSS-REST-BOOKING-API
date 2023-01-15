@@ -12,7 +12,7 @@ public sealed class LocationValidation : AbstractValidator<LocationDto>
 {
     public LocationValidation()
     {
-        RuleFor(loc => loc.Adress)
+        RuleFor(loc => loc.Address)
             .NotEmpty();
     }
 }

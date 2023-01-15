@@ -49,7 +49,7 @@ public class ServiceLocations : IServiceLocations
     {
         var acc = await _repositories.LocationRepository.FirstOrDefaultAsync(x => x.X == value.X &&
                                                                                   x.Y == value.Y &&
-                                                                                  x.Adress == value.Adress);
+                                                                                  x.Address == value.Address);
 
         if (acc is not null)
             throw new ValidationException("Location already exists");

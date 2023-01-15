@@ -2,10 +2,10 @@
 using AMSS.Rest.Booking.Service.Authentification;
 using AMSS.Rest.Booking.Service.Model;
 using AMSS.Rest.Booking.Service.Model.Contracts;
+using AMSS.Rest.Booking.Services.Email;
 using AutoMapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
 
 namespace AMSS.Rest.Booking.Configuration;
 
@@ -13,7 +13,6 @@ public static class ServiceConfiguration
 {
     public static IServiceCollection AddServiceConfiguration(this IServiceCollection services, IConfiguration config)
     {
-
 
         services.AddTransient<IServiceAccounts, ServiceAccounts>();
 
@@ -36,6 +35,16 @@ public static class ServiceConfiguration
                    config.GetConnectionString("MySecretKey"),
                    provider.GetService<IMapper>())
             );
+
+        services.AddTransient<IServiceEmail>
+            (
+                x =>
+                   new ServiceEmail(
+                       x.GetService<IServiceAuthentification>(),
+                       x.GetService<IServiceAccounts>(),
+                       config.GetConnectionString("EmailKey")
+            ));
+
 
         return services;
     }
