@@ -8,6 +8,7 @@ using AutoMapper;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -109,7 +110,13 @@ public class ServiceAccounts : IServiceAccounts
         var account = await _repositories.AccountsRepository.SearchByIdAsync(accountId) ?? 
             throw new ValidationException("Account does not exists");
 
-        var dto = _mapper.Map<AccountEntityDto>(account);
+        var dto = new AccountEntityDto();
+
+        dto.PhoneNumber = account.PhoneNumber;
+        dto.Email = account.Email;
+        dto.UserName = account.UserName;
+        dto.AccountId = accountId;
+        dto.Role= account.Role;
 
         var listOfBookings = await _repositories.BookingRepository.GetEntitiesWhereAsync(x => x.AccountId.Equals(accountId));
 

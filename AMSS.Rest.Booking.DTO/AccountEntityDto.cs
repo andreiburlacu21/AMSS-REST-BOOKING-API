@@ -8,6 +8,6 @@ namespace AMSS.Rest.Booking.DTO;
 
 public class AccountEntityDto : AccountDto
 {
-    public List<ReviewDto> Reviews { get; set; }
-    public List<BookingDto> Bookings { get;set; }
+    public List<ReviewDto>? Reviews { get; set; }
+    public List<BookingDto>? Bookings { get;set; }
 }
