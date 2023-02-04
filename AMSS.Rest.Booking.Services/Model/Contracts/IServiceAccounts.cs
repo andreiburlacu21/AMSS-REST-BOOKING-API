@@ -11,4 +11,5 @@ public interface IServiceAccounts : IService<AccountDto>
 {
     Task<AccountDto> SearchByUserNameAsync(string userName);
     Task<AccountDto> SearchByEmailAsync(string email);
+    Task<AccountEntityDto> GetAccountInfoAsync(int accountId);
 }

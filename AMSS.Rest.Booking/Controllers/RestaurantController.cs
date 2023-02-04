@@ -80,37 +80,22 @@ public class RestaurantController : ControllerBase
 
     #endregion
 
-    //#region Other Operation
+    #region Other Operation
 
-    //[HttpGet("Entity/{id}")]
-    //public async Task<IActionResult> GetRestaurantEntityById(int id)
-    //{
-    //    try
-    //    {
-    //        return Ok(await _restaurantService.GetRestaurantEnitityAsync(id));
-    //    }
-    //    catch (Exception e)
-    //    {
-    //        return BadRequest(e.Message);
-    //    }
-    //}
+    [HttpGet("Entity/{id}")]
+    public async Task<IActionResult> GetRestaurantEntityById(int id)
+    {
+        try
+        {
+            return Ok(await _restaurantService.GetInfoRestaurant(id));
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
 
-    //[HttpGet("MyEntities")]
-    //public async Task<IActionResult> GetMyRestaurantEntities()
-    //{
-    //    try
-    //    {
-    //        var id = int.Parse(User.FindFirst("Identifier")?.Value);
-
-    //        return Ok(await _restaurantService.GetMyRestaurantEntitiesAsync(id));
-    //    }
-    //    catch (Exception e)
-    //    {
-    //        return BadRequest(e.Message);
-    //    }
-    //}
-
-    //#endregion
+    #endregion
 
     #region Private methods
 

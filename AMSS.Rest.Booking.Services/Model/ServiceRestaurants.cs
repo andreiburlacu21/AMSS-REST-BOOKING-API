@@ -45,6 +45,42 @@ namespace AMSS.Rest.Booking.Service.Model
             return _mapper.Map<List<RestaurantDto>>(restaurants);
         }
 
+        public async Task<RestaurantEntityDto> GetInfoRestaurant(int resturantId)
+        {
+            var restaurant = await _repositories.RestaurantRepository.FirstOrDefaultAsync(x => x.RestaurantId == resturantId) ?? 
+                             throw new ValidationException("Restaurant does not exists");
+
+            var listOfMenus = await _repositories.MenuRepository.GetEntitiesWhereAsync(x => x.RestaurantId.Equals(resturantId));
+
+            var listOfTables = await _repositories.TableRepository.GetEntitiesWhereAsync(x => x.RestauranId.Equals(resturantId));
+
+            var listOfBookings = await _repositories.BookingRepository.GetEntitiesWhereAsync(x => x.RestaurantId.Equals(resturantId));
+
+            var location = await _repositories.LocationRepository.FirstOrDefaultAsync(x => x.LocationId == restaurant.LocationId);
+
+            var listOfReviews = await _repositories.ReviewRepository.GetEntitiesWhereAsync(booking =>
+            {
+                var flag = false;
+
+                if (listOfBookings.Any(x => x.BookingId == booking.BookingId))
+                {
+                    flag = true;
+                }
+                return flag;
+            });
+
+            var dto = new RestaurantEntityDto()
+            {
+                Reviews = _mapper.Map<List<ReviewDto>>(listOfReviews),
+                Menus = _mapper.Map<List<MenuDto>>(listOfMenus),
+                Bookings = _mapper.Map<List<BookingDto>>(listOfBookings),
+                Tables = _mapper.Map<List<TableDto>>(listOfTables),
+                Location = _mapper.Map<LocationDto>(location),
+            };
+
+            return dto;
+        }
+
         public async Task<RestaurantDto> InsertAsync(RestaurantDto value)
         {
             var acc = await _repositories.RestaurantRepository.FirstOrDefaultAsync(x => x.Name == value.Name &&

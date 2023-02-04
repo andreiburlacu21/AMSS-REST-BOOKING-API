@@ -40,6 +40,9 @@ public class ServiceBookings : IServiceBookings
 
     public async Task<List<BookingDto>> GetAllAsync()
     {
+
+        await this.BookingsToUpdateToCanceled();
+
         var bookings = await _repositories.BookingRepository.GetAllAsync();
 
         return _mapper.Map<List<BookingDto>>(bookings);
@@ -85,4 +88,31 @@ public class ServiceBookings : IServiceBookings
         return _mapper.Map<BookingDto>(booking);
     }
     #endregion
+
+
+    private async Task BookingsToUpdateToCanceled()
+    {
+        var dateNow = DateTime.Now;
+
+        var bookingsToUpdate = await _repositories.BookingRepository.GetEntitiesWhereAsync(booking =>
+        {
+
+            if (DateTime.TryParse(booking.StartDate, out DateTime dateOut))
+            {
+                var resultDate = dateOut - dateNow;
+
+                if (dateOut.Hour > 0 && dateOut.Hour < 24) 
+                    return true;
+            }
+            return false;
+        });
+
+        bookingsToUpdate.ForEach(async booking =>
+        {
+            booking.Status = Utils.Enums.Status.Canceled;
+
+            await _repositories.BookingRepository.UpdateAsync(booking);
+        });
+
+    }
 }

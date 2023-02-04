@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AMSS.Rest.Booking.DTO;
 
-public sealed class AccountDto
+public class AccountDto
 {
     public int AccountId { get; set; }
     public string? UserName { get; set; }

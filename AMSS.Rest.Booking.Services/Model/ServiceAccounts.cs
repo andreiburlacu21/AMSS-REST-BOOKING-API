@@ -103,4 +103,31 @@ public class ServiceAccounts : IServiceAccounts
 
         return _mapper.Map<AccountDto>(accountsDto);
     }
+
+    public async Task<AccountEntityDto> GetAccountInfoAsync(int accountId)
+    {
+        var account = await _repositories.AccountsRepository.SearchByIdAsync(accountId) ?? 
+            throw new ValidationException("Account does not exists");
+
+        var dto = _mapper.Map<AccountEntityDto>(account);
+
+        var listOfBookings = await _repositories.BookingRepository.GetEntitiesWhereAsync(x => x.AccountId.Equals(accountId));
+
+        var listOfReviews = await _repositories.ReviewRepository.GetEntitiesWhereAsync(booking =>
+        {
+            var flag = false;
+
+            if (listOfBookings.Any(x => x.BookingId == booking.BookingId))
+            {
+                flag = true;
+            }
+            return flag;
+        });
+
+        dto.Reviews = _mapper.Map<List<ReviewDto>>(listOfReviews);
+
+        dto.Bookings = _mapper.Map<List<BookingDto>>(listOfBookings);
+
+        return dto;
+    }
 }

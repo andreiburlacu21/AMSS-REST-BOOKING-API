@@ -111,7 +111,7 @@ public class AccountsController : ControllerBase
         try
         {
             var userId = int.Parse(User.FindFirst("Identifier")?.Value);
-            var person = await _userService.SearchByIdAsync(userId);
+            var person = await _userService.GetAccountInfoAsync(userId);
             return Ok(person);
         }
         catch (Exception e)

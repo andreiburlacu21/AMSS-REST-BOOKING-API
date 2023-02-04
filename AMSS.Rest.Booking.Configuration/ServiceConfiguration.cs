@@ -42,6 +42,7 @@ public static class ServiceConfiguration
                    new ServiceEmail(
                        x.GetService<IServiceAuthentification>(),
                        x.GetService<IServiceAccounts>(),
+                       x.GetService<IServiceBookings>(),
                        config.GetConnectionString("EmailKey")
             ));
 

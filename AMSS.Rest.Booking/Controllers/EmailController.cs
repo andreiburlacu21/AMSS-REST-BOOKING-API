@@ -21,28 +21,14 @@ public class EmailController : ControllerBase
         _emailService = emailService;
     }
 
-    [HttpGet("forgotPasswordToken/{email}/{code}")]
-    public async Task<IActionResult> ForgotPasswordToken(string email, string code)
-    {
-        try
-        {
-            return Ok(await _emailService.GetTokenForForgotPasswordAsync(email, code));
-        }
-        catch (Exception e)
-        {
-            return BadRequest(e.Message);
-        }
-    }
-
-
-    [HttpGet("rent")]
+    [HttpPost("booking")]
     [Authorize(Roles = "Admin,User")]
-    public async Task<IActionResult> Appointment()
+    public async Task<IActionResult> Appointment([FromBody] BookingDto booking)
     {
         try
         {
             var userId = int.Parse(User.FindFirst("Identifier")?.Value);
-            await _emailService.SendRentMadeEmailAsync(userId);
+            await _emailService.SendRentMadeEmailAsync(userId, booking);
             return Ok(true);
         }
         catch (Exception e)
@@ -67,13 +53,16 @@ public class EmailController : ControllerBase
         }
     }
 
-    [HttpPost("forgotPasswordSend")]
-    public async Task<IActionResult> ForgotPasswordSend([FromBody] string emailTo)
+    [HttpPost("confirmationBooking")]
+    [Authorize(Roles = "Admin,User")]
+
+    public async Task<IActionResult> ConfirmationBooking([FromBody] BookingDto booking)
     {
         try
         {
-            await _emailService.SendForgotPasswordEmailAsync(emailTo);
-            return Ok();
+            var userId = int.Parse(User.FindFirst("Identifier")?.Value);
+            await _emailService.SendRentMadeEmailAsync(userId, booking);
+            return Ok(true);
         }
         catch (Exception e)
         {

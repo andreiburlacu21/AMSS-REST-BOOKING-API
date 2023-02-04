@@ -9,4 +9,5 @@ namespace AMSS.Rest.Booking.Service.Model.Contracts;
 
 public interface IServiceRestaurants : IService<RestaurantDto>
 {
+    Task<RestaurantEntityDto> GetInfoRestaurant(int resturantId);
 }
