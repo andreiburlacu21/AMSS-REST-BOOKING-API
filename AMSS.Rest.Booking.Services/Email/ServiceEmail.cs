@@ -35,7 +35,7 @@ public class ServiceEmail : IServiceEmail
     }
     public async Task SendRentMadeEmailAsync(int userId, BookingDto bookingDto)
     {
-        _ = serviceBookings.SearchByIdAsync(bookingDto.BookingId) ?? throw new ValidationException("booking does not exists");
+        _ = await serviceBookings.SearchByIdAsync(bookingDto.BookingId) ?? throw new ValidationException("booking does not exists");
         var user = await serviceAccounts.SearchByIdAsync(userId);
         var client = new SendGridClient(apiKey);
         var from = new EmailAddress("proiectAMSS@outlook.com");
@@ -69,7 +69,7 @@ public class ServiceEmail : IServiceEmail
         var client = new SendGridClient(apiKey);
         var from = new EmailAddress("proiectAMSS@outlook.com");
         var to = new EmailAddress(user.Email);
-        var subject = "Rent is done";
+        var subject = "Booking is confirmed";
         var body = "";
         var msg = MailHelper.CreateSingleEmail(
             from,
@@ -77,9 +77,9 @@ public class ServiceEmail : IServiceEmail
             subject,
             body,
             SetContent(
-             "This rent has ended",
+             "This booking has been confirmed",
              "",
-             "In your account, at my invoices section you can download your invoice",
+             "In your account, at my profile section you can cancel this booking if you want to.",
              "We are glad to have you here")
             );
         var respone = await client.SendEmailAsync(msg);

@@ -56,12 +56,12 @@ public class EmailController : ControllerBase
     [HttpPost("confirmationBooking")]
     [Authorize(Roles = "Admin,User")]
 
-    public async Task<IActionResult> ConfirmationBooking([FromBody] BookingDto booking)
+    public async Task<IActionResult> ConfirmationBooking(string key, [FromBody] BookingDto booking)
     {
         try
         {
             var userId = int.Parse(User.FindFirst("Identifier")?.Value);
-            await _emailService.SendRentMadeEmailAsync(userId, booking);
+            await _emailService.ConfirmBooking(userId, key, booking);
             return Ok(true);
         }
         catch (Exception e)

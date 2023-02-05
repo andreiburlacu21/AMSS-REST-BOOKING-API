@@ -12,7 +12,7 @@ public sealed class Table
 {
     [ExplicitKey]
     public int TableId { get; set; }
-    public int RestauranId { get; set; }
+    public int RestaurantId { get; set; }
     public int NumberOfSeats { get; set; }
     public bool Outdoor { get; set; }
 

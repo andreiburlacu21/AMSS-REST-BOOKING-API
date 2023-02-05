@@ -52,7 +52,7 @@ namespace AMSS.Rest.Booking.Service.Model
 
             var listOfMenus = await _repositories.MenuRepository.GetEntitiesWhereAsync(x => x.RestaurantId.Equals(resturantId));
 
-            var listOfTables = await _repositories.TableRepository.GetEntitiesWhereAsync(x => x.RestauranId.Equals(resturantId));
+            var listOfTables = await _repositories.TableRepository.GetEntitiesWhereAsync(x => x.RestaurantId.Equals(resturantId));
 
             var listOfBookings = await _repositories.BookingRepository.GetEntitiesWhereAsync(x => x.RestaurantId.Equals(resturantId));
 
