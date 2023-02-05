@@ -2,6 +2,7 @@
 using AMSS.Rest.Booking.DTO;
 using AMSS.Rest.Booking.Service.Authentification;
 using AMSS.Rest.Booking.Service.Model.Contracts;
+using FluentValidation;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System;
@@ -17,16 +18,14 @@ public class ServiceEmail : IServiceEmail
 {
     private string apiKey = string.Empty;
     Dictionary<string, string> emailMap;
-    private IServiceAuthentification _manage;
     private static Random random;
     private readonly IServiceAccounts serviceAccounts;
-    private readonly IServiceBookings serviceBookings; 
+    private readonly IServiceBookings serviceBookings;
+
     public ServiceEmail(IServiceAuthentification manage, IServiceAccounts serviceAccounts, 
                         IServiceBookings serviceBookings, string key)
     {
         apiKey = key;
-
-        _manage = manage;
 
         this.serviceAccounts = serviceAccounts;
 
@@ -36,10 +35,10 @@ public class ServiceEmail : IServiceEmail
     }
     public async Task SendRentMadeEmailAsync(int userId, BookingDto bookingDto)
     {
-
+        _ = serviceBookings.SearchByIdAsync(bookingDto.BookingId) ?? throw new ValidationException("booking does not exists");
         var user = await serviceAccounts.SearchByIdAsync(userId);
         var client = new SendGridClient(apiKey);
-        var from = new EmailAddress("cardetailinggarage@outlook.com");
+        var from = new EmailAddress("proiectAMSS@outlook.com");
         var to = new EmailAddress(user.Email);
 
         var key = RandomString(7);
@@ -68,7 +67,7 @@ public class ServiceEmail : IServiceEmail
     {
         var user = await serviceAccounts.SearchByIdAsync(userId);
         var client = new SendGridClient(apiKey);
-        var from = new EmailAddress("cardetailinggarage@outlook.com");
+        var from = new EmailAddress("proiectAMSS@outlook.com");
         var to = new EmailAddress(user.Email);
         var subject = "Rent is done";
         var body = "";

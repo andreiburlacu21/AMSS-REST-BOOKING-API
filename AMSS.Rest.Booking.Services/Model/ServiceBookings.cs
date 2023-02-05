@@ -62,6 +62,8 @@ public class ServiceBookings : IServiceBookings
 
         var booking = _mapper.Map<Bookings>(value);
 
+        booking.Status = Utils.Enums.Status.Created;
+
         var bookingDto = await _repositories.BookingRepository.InsertAsync(booking);
 
         return _mapper.Map<BookingDto>(bookingDto);
