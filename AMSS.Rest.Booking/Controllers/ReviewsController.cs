@@ -1,4 +1,5 @@
-﻿using AMSS.Rest.Booking.DTO;
+﻿using AMSS.Rest.Booking.DataAccess.Data.Domains;
+using AMSS.Rest.Booking.DTO;
 using AMSS.Rest.Booking.Service.Model.Contracts;
 using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
@@ -37,6 +38,8 @@ public class ReviewsController : ControllerBase
     {
         try
         {
+            review.AccountId = int.Parse(User.FindFirst("Identifier")?.Value);
+
             return Ok(await _reviewService.InsertAsync(review));
         }
         catch (Exception e)
