@@ -12,7 +12,8 @@ public sealed class Review
 {
     [ExplicitKey]
     public int ReviewId { get; set; }
-    public int BookingId { get; set; }
+    public int RestaurantId { get; set; }
+    public int AccountId { get; set; }
     public int Grade { get; set; }
     public string? Description { get; set; }
 }

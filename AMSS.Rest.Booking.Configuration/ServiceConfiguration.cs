@@ -36,7 +36,7 @@ public static class ServiceConfiguration
                    provider.GetService<IMapper>())
             );
 
-        services.AddTransient<IServiceEmail>
+        services.AddSingleton<IServiceEmail>
             (
                 x =>
                    new ServiceEmail(

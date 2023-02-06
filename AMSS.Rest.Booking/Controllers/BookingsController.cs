@@ -149,7 +149,7 @@ public class BookingsController : ControllerBase
 
         var bookingData = await _bookingService.SearchByIdAsync(id);
 
-        if (bookingData.AccountId != userId || userRole != Role.Admin.ToString())
+        if (bookingData.AccountId != userId && userRole != Role.Admin.ToString())
         {
             throw new ValidationException("You dont have access to modify thie value");
         }

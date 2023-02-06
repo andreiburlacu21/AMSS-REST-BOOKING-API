@@ -58,16 +58,7 @@ namespace AMSS.Rest.Booking.Service.Model
 
             var location = await _repositories.LocationRepository.FirstOrDefaultAsync(x => x.LocationId == restaurant.LocationId);
 
-            var listOfReviews = await _repositories.ReviewRepository.GetEntitiesWhereAsync(booking =>
-            {
-                var flag = false;
-
-                if (listOfBookings.Any(x => x.BookingId == booking.BookingId))
-                {
-                    flag = true;
-                }
-                return flag;
-            });
+            var listOfReviews = await _repositories.ReviewRepository.GetEntitiesWhereAsync(x => x.RestaurantId.Equals(resturantId));
 
             var dto = new RestaurantEntityDto()
             {

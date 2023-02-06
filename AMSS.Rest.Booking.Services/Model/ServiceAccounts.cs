@@ -120,16 +120,7 @@ public class ServiceAccounts : IServiceAccounts
 
         var listOfBookings = await _repositories.BookingRepository.GetEntitiesWhereAsync(x => x.AccountId.Equals(accountId));
 
-        var listOfReviews = await _repositories.ReviewRepository.GetEntitiesWhereAsync(booking =>
-        {
-            var flag = false;
-
-            if (listOfBookings.Any(x => x.BookingId == booking.BookingId))
-            {
-                flag = true;
-            }
-            return flag;
-        });
+        var listOfReviews = await _repositories.ReviewRepository.GetEntitiesWhereAsync(x => x.AccountId.Equals(accountId));
 
         dto.Reviews = _mapper.Map<List<ReviewDto>>(listOfReviews);
 

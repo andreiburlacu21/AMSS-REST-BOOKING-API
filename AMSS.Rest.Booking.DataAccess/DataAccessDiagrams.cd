@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AMSS.Rest.Booking.DataAccess.Connections.SqlDataAccess" BaseTypeListCollapsed="true">
+    <Position X="17" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Connections\SqlDataAccess.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AMSS.Rest.Booking.DataAccess.Data.Domains.Account" Collapsed="true">
+    <Position X="17" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAEgAAQAAAAAAAAAACAQAAAAAAAAA=</HashCode>
+      <FileName>Data\Domains\Account.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AMSS.Rest.Booking.DataAccess.Data.Domains.Bookings" Collapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAIAAAAAgAAAAQgAAAAAAAAIAAEAEAAAAA=</HashCode>
+      <FileName>Data\Domains\Bookings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AMSS.Rest.Booking.DataAccess.Data.Domains.Location" Collapsed="true">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAYAA=</HashCode>
+      <FileName>Data\Domains\Location.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AMSS.Rest.Booking.DataAccess.Data.Domains.Menu" Collapsed="true">
+    <Position X="17" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAABAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Data\Domains\Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AMSS.Rest.Booking.DataAccess.Data.Domains.Restaurant" Collapsed="true">
+    <Position X="18.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAgAAAAAAAAAAQAAAAAAAEAAAAEAAAAAAA=</HashCode>
+      <FileName>Data\Domains\Restaurant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AMSS.Rest.Booking.DataAccess.Data.Domains.Review" Collapsed="true">
+    <Position X="20.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAoAAAAAAAAAAAAAAAAAAAAEAAAAAEAAAA=</HashCode>
+      <FileName>Data\Domains\Review.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AMSS.Rest.Booking.DataAccess.Data.Domains.Table" Collapsed="true">
+    <Position X="20.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAACAAAAAAAAAAAAAAQAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Data\Domains\Table.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AMSS.Rest.Booking.DataAccess.Data.Reposiotry.Repository&lt;T&gt;" Collapsed="true">
+    <Position X="7.75" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAACAAAAAAAAAAAABAAAAAAAQgAAEAAAAAAAIE=</HashCode>
+      <FileName>Data\Repository\Repository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AMSS.Rest.Booking.DataAccess.Data.AccountsRepository">
+    <Position X="1.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\AccountsRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AMSS.Rest.Booking.DataAccess.Data.BookingRepository">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\BookingRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AMSS.Rest.Booking.DataAccess.Data.LocationRepository">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\LocationRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AMSS.Rest.Booking.DataAccess.Data.MenuRepository">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\MenuRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AMSS.Rest.Booking.DataAccess.Data.RestaurantRepository">
+    <Position X="12.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\RestaurantRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AMSS.Rest.Booking.DataAccess.Data.ReviewRepository">
+    <Position X="14.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\ReviewRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AMSS.Rest.Booking.DataAccess.Data.TableRepository">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\TableRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AMSS.Rest.Booking.DataAccess.Factory.SqlDataFactory" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="3.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAQAAAAAAAKgAAAAAAAAQAAQAAAAAAAEAAAAA=</HashCode>
+      <FileName>Factory\SqlDataFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="AMSS.Rest.Booking.DataAccess.Connections.ISqlDataAccess">
+    <Position X="17" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Connections\ISqlDataAccess.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AMSS.Rest.Booking.DataAccess.Data.Contracts.IAccountsRepository" Collapsed="true">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Contracts\IAccountsRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AMSS.Rest.Booking.DataAccess.Data.Contracts.IBookingRepository" Collapsed="true">
+    <Position X="10" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Contracts\IBookingRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AMSS.Rest.Booking.DataAccess.Data.Contracts.ILocationRepository" Collapsed="true">
+    <Position X="12.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Contracts\ILocationRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AMSS.Rest.Booking.DataAccess.Data.Contracts.IMenuRepository" Collapsed="true">
+    <Position X="14.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Contracts\IMenuRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AMSS.Rest.Booking.DataAccess.Data.Contracts.IRestaurantRepository">
+    <Position X="1" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Contracts\IRestaurantRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AMSS.Rest.Booking.DataAccess.Data.Contracts.IReviewRepository">
+    <Position X="3.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Contracts\IReviewRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AMSS.Rest.Booking.DataAccess.Data.Contracts.ITableRepository" Collapsed="true">
+    <Position X="7.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Contracts\ITableRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AMSS.Rest.Booking.DataAccess.Data.Reposiotry.IRepository&lt;T&gt;" Collapsed="true">
+    <Position X="7.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAACAAAAAAAAAAAABAAAAAAAAgAAEAAAAAAAIE=</HashCode>
+      <FileName>Data\Repository\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AMSS.Rest.Booking.DataAccess.Factory.ISqlDataFactory">
+    <Position X="18.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAQAAAAAAAKgAAAAAAAAQAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Factory\ISqlDataFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

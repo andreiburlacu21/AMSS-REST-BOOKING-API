@@ -47,7 +47,7 @@ public class ServiceReviews : IServiceReviews
     public async Task<ReviewDto> InsertAsync(ReviewDto value)
     {
         var acc = await _repositories.ReviewRepository.FirstOrDefaultAsync(x => x.Description == value.Description &&
-                                                                                x.BookingId == value.BookingId);
+                                                                                x.AccountId == value.AccountId);
 
         if (acc is not null)
             throw new ValidationException("Review already exists");
