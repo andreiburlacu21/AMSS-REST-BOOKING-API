@@ -22,7 +22,7 @@ public class AccountsController : ControllerBase
     #region Crud Operation
 
     [HttpGet("all")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,User")]
 
     public async Task<IActionResult> GetAll()
     {
