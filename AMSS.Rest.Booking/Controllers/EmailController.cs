@@ -53,7 +53,7 @@ public class EmailController : ControllerBase
         }
     }
 
-    [HttpPost("confirmationBooking")]
+    [HttpPost("confirmationBooking/{key}")]
     [Authorize(Roles = "Admin,User")]
 
     public async Task<IActionResult> ConfirmationBooking(string key, [FromBody] BookingDto booking)
